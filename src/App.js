@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch, useSelector } from "react-redux";
+
+import imge1 from "./images/image1.webp";
+import { requestApiData2 } from "./Redux/action/Action";
+import {
+  decreaseCounter,
+  fetchUserReq,
+  increaseCounter,
+  requestApiData,
+} from "./Redux/action/CounterAction";
 
 function App() {
+  const dispatch = useDispatch();
+
+  const counter = useSelector((state) => state.CounterReducer.count);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      Property Pistol
+      <div>Count: {counter}</div>
+      <button onClick={() => dispatch(requestApiData())}>CALL API</button>
+      <button onClick={() => dispatch(requestApiData2())}>CallAPI 2</button>
+      <img src={imge1} />
     </div>
   );
 }
