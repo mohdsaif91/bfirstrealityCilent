@@ -1,21 +1,19 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import reportWebVitals from "./reportWebVitals";
-// import { Provider } from "react-redux";
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
 
-// import App from "./App";
-// import ReduxStore from "./Redux-config-store";
+import ReduxStore from "./Redux-config-store";
+import App from "./App";
 
-// import "./index.scss";
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-// import './index.css';
-import './index.scss';
-import App from './App';
+import "./index.scss";
+import "antd/dist/antd.css";
 
 ReactDOM.render(
-   <App/>
-  ,document.getElementById('root')
+  <Provider store={ReduxStore}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById("root")
 );
-

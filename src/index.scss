@@ -7,7 +7,9 @@
 }
 
 body {
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Titillium Web", sans-serif !important;
 }
+@import "./SCSS/variable";
 
-@import "./SCSS/utils.scss";
+@import "./SCSS/footer";
+@import "./SCSS/navbar";
