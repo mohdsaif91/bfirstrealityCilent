@@ -11,23 +11,47 @@
   width: 100%;
   display: flex;
   overflow-y: hidden;
+  justify-content: space-between;
 
   .main-logo {
-    width: 152px;
     float: left !important;
     a {
       padding-right: 24px;
       color: $text-color;
       font-weight: 600;
-      padding: 18px 21px;
-      font-size: 20px;
+      padding: 0 21px;
+      font-size: 32px;
       display: inline-block;
+      font-family: cursive;
+    }
+  }
+  .menu-container {
+    margin-left: 64px;
+    .ant-menu-item {
+      padding: 0px 5px;
+    }
+    .right-menu {
+      float: right;
+      margin-right: 64px;
     }
   }
 }
-
-.main-logo .menu-container .ant-menu-item {
-  padding: 0px 5px;
+.right-container {
+  display: flex;
+  li {
+    font-size: 18px;
+    list-style-type: none;
+    padding-right: 24px;
+    padding-top: 10px;
+    a {
+      color: $text-color;
+      padding: 8px;
+      border-radius: 15%;
+    }
+    .active {
+      background: $Footer-active-nav-bar;
+    }
+  }
 }
 
 .menu-container .ant-menu-submenu-title {
@@ -41,14 +65,6 @@
 
 .menu-container .ant-menu-horizontal {
   border-bottom: none;
-}
-
-.menu-container .left-menu {
-  float: left;
-}
-
-.menu-container .right-menu {
-  float: right;
 }
 
 .small-screen-btn {

@@ -18,20 +18,20 @@ export default function MainHeader() {
 
   function RightMenu({ mode }) {
     return (
-      <Menu mode={mode}>
-        <Menu.Item key="home">
+      <ul className="right-container active">
+        <li className="nav-list">
           <NavLink to="/">Home</NavLink>
-        </Menu.Item>
-        <Menu.Item key="contact">
-          <NavLink to="/contact">Contact</NavLink>
-        </Menu.Item>
-        <Menu.Item key="about">
-          <NavLink to="/about">About</NavLink>
-        </Menu.Item>
-        <Menu.Item key="services">
+        </li>
+        <li className="nav-list">
           <NavLink to="/services">Services</NavLink>
-        </Menu.Item>
-      </Menu>
+        </li>
+        <li className="nav-list">
+          <NavLink to="/about">About Us</NavLink>
+        </li>
+        <li className="nav-list">
+          <NavLink to="/contact">Contact</NavLink>
+        </li>
+      </ul>
     );
   }
 
