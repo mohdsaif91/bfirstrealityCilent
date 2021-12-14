@@ -24,9 +24,9 @@ function App() {
           <Route path="contact" element={<Contact />} />
         </Routes>
       </Content>
-      {/* <Footer className="footer-container"> */}
+      <Footer className="footer-container">
         <FooterComponent />
-      {/* </Footer> */}
+      </Footer>
     </Layout>
   );
 }
