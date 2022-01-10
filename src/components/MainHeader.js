@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Layout, Menu, Icon, Input, Button, Drawer } from "antd";
+import { Button, Drawer } from "antd";
 import { AlignRightOutlined } from "@ant-design/icons"; //importing ant design icons
 
 import { MiniSidebar } from "./MiniSideBar";
@@ -38,23 +38,11 @@ export default function MainHeader() {
     );
   }
 
-  function LeftMenu({ mode }) {
-    return (
-      <Menu mode={mode}>
-        <Menu.Item key="mail">
-          <a href="/login">Signin</a>
-        </Menu.Item>
-        <Menu.Item key="app">
-          <a href="/register">Signup</a>
-        </Menu.Item>
-      </Menu>
-    );
-  }
   return (
     <nav className="menu">
       <div className="main-logo">
         <NavLink to="/">
-          <a href="#">BeFirstReality</a>
+          <a href="/#">BeFirstReality</a>
         </NavLink>
       </div>
       <div className="menu-container">

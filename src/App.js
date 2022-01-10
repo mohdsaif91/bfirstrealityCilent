@@ -1,4 +1,4 @@
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Layout } from "antd";
 
 import Home from "./Pages/Home";
@@ -25,7 +25,6 @@ function App() {
           <Route path="services" element={<Services />} />
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<Login />} />
-
         </Routes>
       </Content>
       <Footer className="footer-container">
