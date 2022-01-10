@@ -8,6 +8,8 @@ import Icon, {
   PlaySquareOutlined,
   ReadOutlined,
   UserOutlined,
+  LoginOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
 
 export default function Sidebar() {
@@ -30,6 +32,7 @@ export default function Sidebar() {
       <SidebarOption text="Videos" name={PlaySquareOutlined} />
       <SidebarOption text="Explore" name={GlobalOutlined} />
       <SidebarOption text="More" name={EllipsisOutlined} />
+      
     </div>
   );
 }
@@ -53,6 +56,9 @@ export function MiniSidebar() {
       <SidebarOption text="Videos" name={PlaySquareOutlined} />
       <SidebarOption text="Explore" name={GlobalOutlined} />
       <SidebarOption text="More" name={EllipsisOutlined} />
+      <SidebarOption text="login"  name={LoginOutlined} />
+      <SidebarOption text="logout"  name={LogoutOutlined} />
+
     </div>
   );
 }

@@ -31,6 +31,9 @@ export default function MainHeader() {
         <li className="nav-list">
           <NavLink to="/contact">Contact</NavLink>
         </li>
+        <li className="nav-list">
+          <NavLink to="/login">Login</NavLink>
+        </li>
       </ul>
     );
   }
