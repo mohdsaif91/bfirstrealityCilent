@@ -7,6 +7,7 @@ import { Services } from "./Pages/Services";
 import { Contact } from "./Pages/Contact";
 import { Login } from "./Pages/forminandout/Login";
 
+// import SearchBar from "./Pages/searchbar/Search"
 import MainHeader from "./components/MainHeader";
 import FooterComponent from "./components/FooterComponent";
 import { Registration } from "./Pages/forminandout/Registration";
@@ -20,6 +21,7 @@ function App() {
         <MainHeader />
       </Header>
       <Content>
+        {/* <SearchBar/> */}
         <Routes>
       
           <Route path="/" element={<Home />} />
@@ -28,11 +30,13 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<Login />} />
           <Route path="Registration" element={<Registration />} />
-       </Routes>
-      </Content>
-      <Footer className="footer-container">
+          </Routes>
+          <Footer className="footer-container">
         <FooterComponent />
       </Footer>
+   
+      </Content>
+   
     </Layout>
   );
 }
