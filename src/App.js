@@ -30,9 +30,9 @@ function App() {
     <Layout>
       <Header className="header-top">
         {Auth.loggedIn && Auth.user?.role !== "admin" ? (
-          <MainHeader />
-        ) : (
           <AdminHeader />
+        ) : (
+          <MainHeader />
         )}
       </Header>
       <Content>
