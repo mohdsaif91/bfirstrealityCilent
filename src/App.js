@@ -21,7 +21,9 @@ function App() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    setlogin(pathname === "/login");
+    if (pathname === "/login" || pathname.includes("admin")) {
+      setlogin(true);
+    }
   }, [pathname]);
 
   const { Header, Footer, Content } = Layout;
@@ -29,11 +31,8 @@ function App() {
   return (
     <Layout>
       <Header className="header-top">
-        {Auth.loggedIn && Auth.user?.role !== "admin" ? (
-          <AdminHeader />
-        ) : (
-          <MainHeader />
-        )}
+        {/* {Auth.loggedIn && Auth.user?.role !== "admin" ? ( */}
+        {login ? <AdminHeader /> : <MainHeader />}
       </Header>
       <Content>
         {/* <SearchBar/> */}
@@ -48,7 +47,7 @@ function App() {
           <Route path="adminHome" element={<AdminHome />} />
         </Routes>
       </Content>
-      {Auth.loggedIn && Auth.user?.role !== "admin" && (
+      {!login && (
         <Footer className="footer-container">
           <FooterComponent />
         </Footer>
