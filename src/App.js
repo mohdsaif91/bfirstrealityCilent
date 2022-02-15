@@ -1,17 +1,17 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Layout } from "antd";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 import Home from "./Pages/Home";
 import { About } from "./Pages/About";
 import { Services } from "./Pages/Services";
 import { Contact } from "./Pages/Contact";
-import Login from "./Pages/forminandout/Login";
+import Login from "./components/Auth/Login";
 import MainHeader from "./components/MainHeader";
 import FooterComponent from "./components/FooterComponent";
 import { Registration } from "./Pages/forminandout/Registration";
 import AdminHome from "./AdminPages/AdminHome";
-import { useSelector } from "react-redux";
 import AdminHeader from "./AdminPages/AdminHeader";
 
 function App() {

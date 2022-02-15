@@ -22,12 +22,12 @@ export default function MainHeader() {
         <li className="nav-list">
           <NavLink to="/">Home</NavLink>
         </li>
-        <li className="nav-list">
+        {/* <li className="nav-list">
           <NavLink to="/services">Services</NavLink>
-        </li>
-        <li className="nav-list">
+        </li> */}
+        {/* <li className="nav-list">
           <NavLink to="/about">About Us</NavLink>
-        </li>
+        </li> */}
         <li className="nav-list">
           <NavLink to="/contact">Contact</NavLink>
         </li>
@@ -42,7 +42,7 @@ export default function MainHeader() {
     <nav className="menu">
       <div className="main-logo">
         <NavLink to="/">
-          <a href="/#">BeFirstReality</a>
+          <a href="/#">Future Homes</a>
         </NavLink>
       </div>
       <div className="menu-container">

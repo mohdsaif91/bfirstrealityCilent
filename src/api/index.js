@@ -5,6 +5,7 @@ export const baseUrl = "https://futurehomes.herokuapp.com";
 
 export const API = {
   auth: `${baseUrl}/api/v1/auth`,
+  client: `${baseUrl}/api/v1/client`,
 };
 
 export const loginAPI = (data) => Axios.post(`${baseUrl}/login`, data);
