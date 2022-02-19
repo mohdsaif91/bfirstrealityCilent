@@ -13,6 +13,8 @@ import FooterComponent from "./components/FooterComponent";
 import { Registration } from "./Pages/forminandout/Registration";
 import AdminHome from "./AdminPages/AdminHome";
 import AdminHeader from "./AdminPages/AdminHeader";
+import Adminhead from "./AdminPages/AdminHeader";
+
 
 function App() {
   const [login, setlogin] = useState(false);
