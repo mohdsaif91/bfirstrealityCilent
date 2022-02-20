@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./AdminHome.scss";
+import AdminRegistration from "./AdminRegistration";
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { Typography } from 'antd';
 import {
@@ -11,6 +12,7 @@ import {
   BankFilled,
 } from '@ant-design/icons';
 
+// formparthere
 
 
 const { Title } = Typography;
@@ -43,7 +45,7 @@ export default function AdminHome() {
               Admin
             </Menu.Item>
             <Menu.Item key="2" icon={<DesktopOutlined />}>
-              property overview
+              property overviews
             </Menu.Item>
 
             <SubMenu key="sub2" icon={<BankFilled />} title="PROPERTY">
@@ -61,6 +63,10 @@ export default function AdminHome() {
           <Content className="contentpart"  style={{ margin: '0 16px' }}>
             <div id="part" className="site-layout-background" style={{ padding: 24, minHeight: 450, marginTop:20 }}>
               content part here
+              <div className="formpart">
+              <AdminRegistration/>
+
+              </div>
             </div>
           </Content>
           <Footer id="fot" style={{ textAlign: 'center' }}>FOOTEER PART</Footer>
