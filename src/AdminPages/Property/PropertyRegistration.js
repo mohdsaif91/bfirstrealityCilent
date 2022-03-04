@@ -2,6 +2,10 @@
 import React, { useState } from "react";
 import "antd/dist/antd.css";
 import { DatePicker, Space, Upload } from "antd";
+// import { Row, Col } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
+import axios, { Axios } from "axios";
+import "./PropertyRegistration.scss";
 import {
   Form,
   Input,
@@ -16,56 +20,25 @@ import {
 } from "antd";
 
 const { Option } = Select;
-// const residences = [
-//     {
-//         value: 'zhejiang',
-//         label: 'Zhejiang',
-//         children: [
-//             {
-//                 value: 'hangzhou',
-//                 label: 'Hangzhou',
-//                 children: [
-//                     {
-//                         value: 'xihu',
-//                         label: 'West Lake',
-//                     },
-//                 ],
-//             },
-//         ],
-//     },
-//     {
-//         value: 'jiangsu',
-//         label: 'Jiangsu',
-//         children: [
-//             {
-//                 value: 'nanjing',
-//                 label: 'Nanjing',
-//                 children: [
-//                     {
-//                         value: 'zhonghuamen',
-//                         label: 'Zhong Hua Men',
-//                     },
-//                 ],
-//             },
-//         ],
-//     },
-// ];
+
 const formItemLayout = {
   labelCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 8,
-    },
+    // xs: {
+    //   span: 24,
+    // },
+    // sm: {
+    //   span: 8,
+    // },
+    span: 6,
   },
   wrapperCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 16,
-    },
+    // xs: {
+    //   span: 12,
+    // },
+    // sm: {
+    //   span: 10,
+    // },
+    span: 5,
   },
 };
 const tailFormItemLayout = {
@@ -85,7 +58,46 @@ function onChange(date, dateString) {
   console.log(date, dateString);
 }
 
+// const initialData = {
+//   builderName:"", buildingName:" ",propertyimage:"",reraNumber: "",projectStarted:"",possesionDate:"",nearbyDetails:"",othersDetail:""
+
+// }
+
 export default function PropertyRegistration() {
+  // const [property, setProperty] = useState({
+  // ...initialData
+  // });
+
+  const [userregistration, setuserRegistration] = useState({
+    builderName: "",
+    buildingName: " ",
+    propertyimage: "",
+    reraNumber: "",
+    projectStarted: "",
+    possesionDate: "",
+    nearbyDetails: "",
+    othersDetail: "",
+  });
+  const [records, setreCords] = useState([]);
+
+  const handleInput = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    console.log(name, value);
+
+    setuserRegistration({ ...userregistration, [name]: value });
+  };
+  const handleSubmit = (e) => {
+    // e.preventDefault();
+
+    const newRecord = {
+      ...userregistration,
+      id: new Date().getTime().toString(),
+    };
+    setreCords([...records, newRecord]);
+    console.log(records);
+  };
+
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
@@ -104,8 +116,28 @@ export default function PropertyRegistration() {
     </Form.Item>
   );
 
+  let formData = new FormData();
+
+  const onFileChange = (e) => {
+    console.log(e.target.files[0]);
+    if (e.target && e.target.files[0]) {
+      formData.append("file", e.target.files[0]);
+    }
+  };
+  const SubmitFileData = () => {
+    Axios.post("https://v2.convertapi.com/upload ", { formData })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // const handleChange = (e) => {};
+
   return (
-    <div className="formpart" style={{ width: 480, margin: "0 auto" }}>
+    <div className="formpart" style={{ margin: 18, padding: 8 }}>
       <Form
         {...formItemLayout}
         form={form}
@@ -116,18 +148,28 @@ export default function PropertyRegistration() {
         }}
         scrollToFirstError
       >
-        <Form.Item
-          name={["user", "name"]}
-          label="Name"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
+        <Row>
+          <Col span={12}>
+            <Form.Item
+              // name={["user", "name"]}
+              name="builderName"
+              label="Builder Name"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input
+                type="text"
+                value={userregistration.builderName}
+                onChange={handleInput}
+                style={{ width: 300 }}
+              />
+            </Form.Item>
+          </Col>
+
+          {/* <Form.Item
           name="email"
           label="E-mail"
           rules={[
@@ -142,9 +184,9 @@ export default function PropertyRegistration() {
           ]}
         >
           <Input />
-        </Form.Item>
+        </Form.Item> */}
 
-        <Form.Item
+          {/* <Form.Item
           name="phone"
           label="Phone Number"
           rules={[
@@ -160,109 +202,154 @@ export default function PropertyRegistration() {
               width: "100%",
             }}
           />
-        </Form.Item>
+        </Form.Item> */}
 
-        <Form.Item
-          name="gender"
-          label="Gender"
-          rules={[
-            {
-              required: true,
-              message: "Please select gender!",
-            },
-          ]}
-        >
-          <Select placeholder="select your gender">
-            <Option value="male">Male</Option>
-            <Option value="female">Female</Option>
-            <Option value="other">Other</Option>
-          </Select>
-        </Form.Item>
+          <Col span={12}>
+            <Form.Item
+              name="buildingName"
+              label="Building Name"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input building name",
+                },
+              ]}
+            >
+              <Input
+                type="text"
+                value={userregistration.buildingName}
+                onChange={handleInput}
+                style={{ width: 300 }}
+              />
+            </Form.Item>
+          </Col>
+        </Row>
 
-        <Form.Item
-          name="buildingname"
-          label="BuildingName"
-          rules={[
-            {
-              required: true,
-              message: "Please input building name",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
+        <Row>
+          <Col span={12}>
+            <Form.Item
+              name="propertyimage"
+              label="Property images"
+              rules={[
+                {
+                  required: true,
+                  message: "Please upload property images!",
+                },
+              ]}
+            >
+              <input
+                className="imgupload"
+                type="file"
+                name="file_upload"
+                onChange={onFileChange}
+                listType="picture"
+              />
+            </Form.Item>
+          </Col>
 
-        <Form.Item
-          name="Rera number"
-          label="Rera Number"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
+          <Col span={12}>
+            <Form.Item
+              name="reraNumber"
+              label="Rera Number"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input
+                type="text"
+                value={userregistration.reraNumber}
+                onChange={handleInput}
+                style={{ width: 300 }}
+              />
+            </Form.Item>
+          </Col>
+        </Row>
 
-        <Form.Item name="date" label="Year Date">
-          <Space direction="vertical">
-            <DatePicker onChange={onChange} picker="month" />
-          </Space>
-          ,
-        </Form.Item>
+        <div id="rpart">
+          <Row>
+            <Col span={12}>
+              <Form.Item name="projectStarted" label="Project Started">
+                <Space direction="vertical">
+                  {/* <DatePicker onChange={onChange} name="projectStarted" picker="date" /> */}
+                  <DatePicker
+                    type="number"
+                    value={userregistration.projectStarted}
+                    onChange={handleInput}
+                    name="projectStarted"
+                    picker="date"
+                  />
+                </Space>
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item name="possesionDate" label="Possession Date">
+                <Space direction="vertical">
+                  {/* <DatePicker onChange={onChange} name="possesionDate" picker="date" /> */}
+                  <DatePicker
+                    type="number"
+                    value={userregistration.possesionDate}
+                    onChange={handleInput}
+                    name="possesionDate"
+                    picker="date"
+                  />
+                </Space>
+              </Form.Item>
+            </Col>
+          </Row>
+        </div>
 
-        <Form.Item
-          name="intro"
-          label="Nearby Details"
-          rules={[
-            {
-              required: true,
-              message: "Please input detail",
-            },
-          ]}
-        >
-          <Input.TextArea showCount maxLength={100} />
-        </Form.Item>
+        <Row>
+          <Col span={12}>
+            <Form.Item
+              name="nearbyDetails"
+              label="Nearby Details"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input detail",
+                },
+              ]}
+            >
+              <Input.TextArea
+                type="text"
+                value={userregistration.nearbyDetails}
+                onChange={handleInput}
+                rows={5}
+                style={{ width: 300 }}
+                showCount
+                maxLength={100}
+              />
+            </Form.Item>
+          </Col>
 
-        <Form.Item
-          name="propertyimage"
-          label="property images"
-          rules={[
-            {
-              required: true,
-              message: "Please upload property images!",
-            },
-          ]}
-        >
-          <Upload
-            multiple
-            listType="picture"
-            action={"http://localhost:300/"}
-            showUploadList={{ showRemoveIcon: true }}
-          >
-            <button>upload here</button>
-          </Upload>
-        </Form.Item>
+          <Col span={12}>
+            <Form.Item
+              name="othersDetail"
+              label="Others Details"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input detail",
+                },
+              ]}
+            >
+              <Input.TextArea
+                type="text"
+                value={userregistration.othersDetail}
+                onChange={handleInput}
+                rows={5}
+                style={{ width: 300 }}
+                showCount
+                maxLength={100}
+              />
+            </Form.Item>
+          </Col>
+        </Row>
 
-        <Form.Item
-          name="agreement"
-          valuePropName="checked"
-          rules={[
-            {
-              validator: (_, value) =>
-                value
-                  ? Promise.resolve()
-                  : Promise.reject(new Error("Should accept agreement")),
-            },
-          ]}
-          {...tailFormItemLayout}
-        >
-          <Checkbox>
-            I have read the <a href="">agreement</a>
-          </Checkbox>
-        </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button onSubmit={handleSubmit} type="primary" htmlType="submit">
             Register
           </Button>
         </Form.Item>
