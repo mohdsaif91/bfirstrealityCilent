@@ -81,6 +81,7 @@ export default function PropertyRegistration() {
   const [records, setreCords] = useState([]);
 
   const handleInput = (e) => {
+    console.log(e);
     const name = e.target.name;
     const value = e.target.value;
     console.log(name, value);
@@ -96,6 +97,14 @@ export default function PropertyRegistration() {
     };
     setreCords([...records, newRecord]);
     console.log(records);
+  };
+
+  const handleDateChange = (date, dateType) => {
+    if (dateType === "projectStarted") {
+      setuserRegistration({ ...userregistration, projectStarted: date });
+    } else {
+      setuserRegistration({ ...userregistration, possesionDate: date });
+    }
   };
 
   const [form] = Form.useForm();
@@ -134,6 +143,7 @@ export default function PropertyRegistration() {
       });
   };
 
+  console.log(userregistration, "S");
   // const handleChange = (e) => {};
 
   return (
@@ -276,7 +286,9 @@ export default function PropertyRegistration() {
                   <DatePicker
                     type="number"
                     value={userregistration.projectStarted}
-                    onChange={handleInput}
+                    onChange={(date) =>
+                      handleDateChange(date, "projectStarted")
+                    }
                     name="projectStarted"
                     picker="date"
                   />
@@ -286,11 +298,10 @@ export default function PropertyRegistration() {
             <Col span={12}>
               <Form.Item name="possesionDate" label="Possession Date">
                 <Space direction="vertical">
-                  {/* <DatePicker onChange={onChange} name="possesionDate" picker="date" /> */}
                   <DatePicker
                     type="number"
                     value={userregistration.possesionDate}
-                    onChange={handleInput}
+                    onChange={(date) => handleDateChange(date, "possesionDate")}
                     name="possesionDate"
                     picker="date"
                   />
