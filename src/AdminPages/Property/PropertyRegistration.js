@@ -18,6 +18,7 @@ import {
   Button,
   AutoComplete,
 } from "antd";
+import { getFormData } from "../../utils";
 
 const { Option } = Select;
 
@@ -81,22 +82,14 @@ export default function PropertyRegistration() {
   const [records, setreCords] = useState([]);
 
   const handleInput = (e) => {
-    console.log(e);
-    const name = e.target.name;
-    const value = e.target.value;
-    console.log(name, value);
-
-    setuserRegistration({ ...userregistration, [name]: value });
-  };
-  const handleSubmit = (e) => {
-    // e.preventDefault();
-
-    const newRecord = {
+    console.log(e.target.name);
+    setuserRegistration({
       ...userregistration,
-      id: new Date().getTime().toString(),
-    };
-    setreCords([...records, newRecord]);
-    console.log(records);
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = () => {
+    getFormData(userregistration);
   };
 
   const handleDateChange = (date, dateType) => {
@@ -162,7 +155,6 @@ export default function PropertyRegistration() {
           <Col span={12}>
             <Form.Item
               // name={["user", "name"]}
-              name="builderName"
               label="Builder Name"
               rules={[
                 {
@@ -171,9 +163,10 @@ export default function PropertyRegistration() {
               ]}
             >
               <Input
+                name="builderName"
                 type="text"
                 value={userregistration.builderName}
-                onChange={handleInput}
+                onChange={(e) => handleInput(e)}
                 style={{ width: 300 }}
               />
             </Form.Item>
@@ -216,7 +209,6 @@ export default function PropertyRegistration() {
 
           <Col span={12}>
             <Form.Item
-              name="buildingName"
               label="Building Name"
               rules={[
                 {
@@ -226,9 +218,10 @@ export default function PropertyRegistration() {
               ]}
             >
               <Input
+                name="buildingName"
                 type="text"
                 value={userregistration.buildingName}
-                onChange={handleInput}
+                onChange={(e) => handleInput(e)}
                 style={{ width: 300 }}
               />
             </Form.Item>
@@ -238,7 +231,6 @@ export default function PropertyRegistration() {
         <Row>
           <Col span={12}>
             <Form.Item
-              name="propertyimage"
               label="Property images"
               rules={[
                 {
@@ -249,9 +241,14 @@ export default function PropertyRegistration() {
             >
               <input
                 className="imgupload"
+                name="propertyimage"
                 type="file"
-                name="file_upload"
-                onChange={onFileChange}
+                onChange={(e) =>
+                  setuserRegistration({
+                    ...userregistration,
+                    propertyimage: e.target.files[0],
+                  })
+                }
                 listType="picture"
               />
             </Form.Item>
@@ -259,7 +256,6 @@ export default function PropertyRegistration() {
 
           <Col span={12}>
             <Form.Item
-              name="reraNumber"
               label="Rera Number"
               rules={[
                 {
@@ -268,9 +264,10 @@ export default function PropertyRegistration() {
               ]}
             >
               <Input
+                name="reraNumber"
                 type="text"
                 value={userregistration.reraNumber}
-                onChange={handleInput}
+                onChange={(e) => handleInput(e)}
                 style={{ width: 300 }}
               />
             </Form.Item>
@@ -314,7 +311,6 @@ export default function PropertyRegistration() {
         <Row>
           <Col span={12}>
             <Form.Item
-              name="nearbyDetails"
               label="Nearby Details"
               rules={[
                 {
@@ -324,9 +320,10 @@ export default function PropertyRegistration() {
               ]}
             >
               <Input.TextArea
+                name="nearbyDetails"
                 type="text"
                 value={userregistration.nearbyDetails}
-                onChange={handleInput}
+                onChange={(e) => handleInput(e)}
                 rows={5}
                 style={{ width: 300 }}
                 showCount
@@ -337,7 +334,6 @@ export default function PropertyRegistration() {
 
           <Col span={12}>
             <Form.Item
-              name="othersDetail"
               label="Others Details"
               rules={[
                 {
@@ -349,7 +345,8 @@ export default function PropertyRegistration() {
               <Input.TextArea
                 type="text"
                 value={userregistration.othersDetail}
-                onChange={handleInput}
+                name="othersDetail"
+                onChange={(e) => handleInput(e)}
                 rows={5}
                 style={{ width: 300 }}
                 showCount
