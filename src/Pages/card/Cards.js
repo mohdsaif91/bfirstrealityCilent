@@ -1,5 +1,9 @@
 import React from "react";
 import "./Cards.scss";
+import imge5 from "../../images/caro5.jpg";
+import imge2 from "../../images/caro2.jpg";
+import imge3 from "../../images/caro3.jpg";
+import imge4 from "../../images/caro4.jpg";
 // import buldinglogo from './building-2.png';
 
 export default function cards({ imageUrl, Title, Body }) {
@@ -11,19 +15,14 @@ export default function cards({ imageUrl, Title, Body }) {
         {/* card-1 */}
 
         <div className="cards-main">
-
           <div className="card-container">
-
             <div className="image-container">
-
-              <img src={imageUrl} alt="" />
+              <img src={imge3} alt="" />
             </div>
 
             <div className="card-content">
-
               <div className="card-body">
                 <div className="bl-tit">
-
                   <p>
                     <span className="buld-tit"> Godrej Nest</span>
                     <span className="location">Kandivali East</span>
@@ -31,8 +30,10 @@ export default function cards({ imageUrl, Title, Body }) {
                 </div>
 
                 <p className="apart-area">
-                  <span className="prize">₹1.2 Crore</span><br />
-                  <span className="flat">1BHK,2BHK,3BHK Apartment</span><br />
+                  <span className="prize">₹1.2 Crore</span>
+                  <br />
+                  <span className="flat">1BHK,2BHK,3BHK Apartment</span>
+                  <br />
                   <span className="area">425-600 sq.ft.</span>
                 </p>
                 <div className="btn">
@@ -44,12 +45,11 @@ export default function cards({ imageUrl, Title, Body }) {
             </div>
           </div>
 
-
           {/* card-2 */}
 
           <div className="card-container">
             <div className="image-container">
-              <img src={imageUrl} alt="" />
+              <img src={imge2} alt="" />
             </div>
             <div className="card-content">
               <div className="card-body">
@@ -60,8 +60,10 @@ export default function cards({ imageUrl, Title, Body }) {
                   </p>
                 </div>
                 <p className="apart-area">
-                  <span className="prize">₹1.4 Crore</span><br />
-                  <span className="flat">1BHK,2BHK,3BHK Apartment</span><br />
+                  <span className="prize">₹1.4 Crore</span>
+                  <br />
+                  <span className="flat">1BHK,2BHK,3BHK Apartment</span>
+                  <br />
                   <span className="area">425-600 sq.ft.</span>
                 </p>
                 <div className="btn">
@@ -73,11 +75,11 @@ export default function cards({ imageUrl, Title, Body }) {
             </div>
           </div>
 
-           {/* card-3 */}
+          {/* card-3 */}
 
-           <div className="card-container">
+          <div className="card-container">
             <div className="image-container">
-              <img src={imageUrl} alt="" />
+              <img src={imge4} alt="" />
             </div>
             <div className="card-content">
               <div className="card-body">
@@ -88,8 +90,10 @@ export default function cards({ imageUrl, Title, Body }) {
                   </p>
                 </div>
                 <p className="apart-area">
-                  <span className="prize">₹2 Crore</span><br />
-                  <span className="flat">1BHK,2BHK,3BHK Apartment</span><br />
+                  <span className="prize">₹2 Crore</span>
+                  <br />
+                  <span className="flat">1BHK,2BHK,3BHK Apartment</span>
+                  <br />
                   <span className="area">425-600 sq.ft.</span>
                 </p>
                 <div className="btn">
@@ -101,11 +105,11 @@ export default function cards({ imageUrl, Title, Body }) {
             </div>
           </div>
 
-           {/* card-4 */}
+          {/* card-4 */}
 
-           <div className="card-container">
+          <div className="card-container">
             <div className="image-container">
-              <img src={imageUrl} alt="" />
+              <img src={imge5} alt="" />
             </div>
             <div className="card-content">
               <div className="card-body">
@@ -116,8 +120,10 @@ export default function cards({ imageUrl, Title, Body }) {
                   </p>
                 </div>
                 <p className="apart-area">
-                  <span className="prize">₹1.8 Crore</span><br />
-                  <span className="flat">1BHK,2BHK,3BHK Apartment</span><br />
+                  <span className="prize">₹1.8 Crore</span>
+                  <br />
+                  <span className="flat">1BHK,2BHK,3BHK Apartment</span>
+                  <br />
                   <span className="area">425-600 sq.ft.</span>
                 </p>
                 <div className="btn">
@@ -129,11 +135,11 @@ export default function cards({ imageUrl, Title, Body }) {
             </div>
           </div>
 
-           {/* card-5*/}
+          {/* card-5*/}
 
-           <div className="card-container">
+          <div className="card-container">
             <div className="image-container">
-              <img src={imageUrl} alt="" />
+              <img src={imge2} alt="" />
             </div>
             <div className="card-content">
               <div className="card-body">
@@ -144,8 +150,10 @@ export default function cards({ imageUrl, Title, Body }) {
                   </p>
                 </div>
                 <p className="apart-area">
-                  <span className="prize">₹1.7 Crore</span><br />
-                  <span className="flat">1BHK,2BHK,3BHK Apartment</span><br />
+                  <span className="prize">₹1.7 Crore</span>
+                  <br />
+                  <span className="flat">1BHK,2BHK,3BHK Apartment</span>
+                  <br />
                   <span className="area">425-600 sq.ft.</span>
                 </p>
                 <div className="btn">
@@ -156,11 +164,6 @@ export default function cards({ imageUrl, Title, Body }) {
               </div>
             </div>
           </div>
-
-
-
-
-
 
           {/* <div className="card-container">
             <div className="image-container">
@@ -245,7 +248,7 @@ export default function cards({ imageUrl, Title, Body }) {
           </div> */}
 
           {/* card-6 */}
-{/* 
+          {/* 
           <div className="card-container">
             <div className="image-container">
               <img src={imageUrl} alt="" />
@@ -264,9 +267,6 @@ export default function cards({ imageUrl, Title, Body }) {
               </div>
             </div>
           </div> */}
-
-
-
         </div>
       </div>
     </>

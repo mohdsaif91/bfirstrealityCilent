@@ -1,119 +1,119 @@
-.cards-main{
-    display: flex;
-    border: 5px solid rgb(0 0 0 / 12%);
-    // flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    padding: 20px;
-    border-width: 10px;
-    border-radius: 8px;
-    // margin: 67px 77px 56px 120px;
+.cards-main {
+  display: flex;
+  // border: 5px solid rgb(0 0 0 / 12%);
+  // flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  padding: 8px;
+  border-width: 5px;
+  border-radius: 16px;
+  // margin: 67px 77px 56px 120px;
 
-.card-container{
+  .card-container {
     // height: 33rem;
     margin: 8px;
     height: 30rem;
-      width: 100%;
+    width: 100%;
     padding: 0px;
     border-radius: 15px;
-    overflow:hidden;
+    overflow: hidden;
     box-shadow: 0px 0px 15px -5px;
-    transition:0.3s ;
+    transition: 0.3s;
     animation: ease-in;
-    &:hover{
-        transform: scale(1.1);
-        box-shadow: 0px 0px 15px 0px;
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 0px 15px 0px;
     }
-}
+  }
 
-.image-container img{
+  .image-container img {
     overflow: hidden;
     height: 240px;
-}
-.card-content{
+  }
+  .card-content {
     margin: 1rem;
     margin-top: 0.5rem;
     justify-content: center;
-    
-    h3,p{
-        margin: 0;
-        padding: 0;
+
+    h3,
+    p {
+      margin: 0;
+      padding: 0;
     }
     // .card-title{
     //     margin-bottom: 0.5rem;
     //     font-size: 15px;
     // }
-    
-    .card-body{
-        flex: auto;
-        min-height: 1px;
-        padding: 0.25rem;
-        margin-bottom: 20px;
-        .buld-tit{
-            font-size: 25px;
-            display: block;
-    font-weight: 700;
 
-        }
-        .loction{
+    .card-body {
+      flex: auto;
+      min-height: 1px;
+      padding: 0.25rem;
+      margin-bottom: 20px;
+      .buld-tit {
+        font-size: 25px;
+        display: block;
+        font-weight: 700;
+      }
+      .loction {
         font-size: 8px;
-        }
+      }
 
-         .prize{
-    font-size: 20px;
-    font-weight: 900;
-    display: block;
-    margin-bottom: -25px;
-    margin-top:5%;
-        }
-        
-        .apart-area{
-            display: block;
-            font-size: 15px;
-        }
+      .prize {
+        font-size: 20px;
+        font-weight: 900;
+        display: block;
+        margin-bottom: -25px;
+        margin-top: 5%;
+      }
+
+      .apart-area {
+        display: block;
+        font-size: 15px;
+      }
     }
-
-}
-    
+  }
 }
 
-.btn{
-    display: flex;
-    justify-content: center;
-    button{
-        padding: 0.5rem;
-        margin-top: 15px;
-        background-color:#aeeae757;
-        border:2px solid #3aafa9;
-        transition:0.2s;
-        margin-bottom: 0.5rem;
-        border-radius: 15px;
-        transform: scale();
-        &:hover{
-            background: rgb(67, 67, 88);
-        }
-        a{
-            text-transform: uppercase;
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-            font-weight: bold;
-        }
-    }
-    }
-
-.card-heading{
- 
-    padding: 5px;
-    border: 2px solid rgb(58 175 169 / 48%);
-    border-width: 8px;
+.btn {
+  display: flex;
+  justify-content: center;
+  button {
+    padding: 0.5rem;
+    margin-top: 8px;
+    // margin-top: 15px;
+    // background-color: #aeeae757;
+    // border: 2px solid #3aafa9;
+    background-color: #997ccd57;
+    border: 2px solid #673ab7;
+    transition: 0.2s;
+    margin-bottom: 0.5rem;
     border-radius: 15px;
-    margin: 24px 150px 29px 100px;
-    margin-bottom: 18rem;
-    
-
-    h1{
-        font-size: 3rem;
-        font-family: 'Neusa Next Std','Lora', serif;
-    
+    transform: scale();
+    &:hover {
+      background: rgb(67, 67, 88);
     }
+    a {
+      text-transform: uppercase;
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+}
+
+.card-heading {
+  padding: 5px;
+  // border: 2px solid rgb(58 175 169 / 48%);
+  border: 2px solid #673ab7a3;
+
+  border-width: 8px;
+  border-radius: 15px;
+  margin: 24px 150px 29px 100px;
+  margin-bottom: 18rem;
+
+  h1 {
+    font-size: 3rem;
+    font-family: "Neusa Next Std", "Lora", serif;
+  }
 }
