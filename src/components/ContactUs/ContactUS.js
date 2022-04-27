@@ -9,7 +9,7 @@ import {
   PhoneOutlined,
   EnvironmentOutlined,
 } from "@ant-design/icons";
-import { IoLocationOutline } from "react-icons/fa";
+// import { IoLocationOutline } from "react-icons/fa";
 // import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 
 export default function ContactUS() {

@@ -46,7 +46,7 @@ export default function CarouSel() {
 
       {/* <Section id="hero"> */}
       <div className="background">
-        <img src={imge2} alt="" />
+        <img className="carobg" src={imge2} alt="" />
         {/* <video autoPlay loop muted id="video">
           <source src={Video} type="video/mp4" />
         </video> */}
